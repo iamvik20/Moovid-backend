@@ -7,7 +7,8 @@ require('dotenv').config();
 
 const app = express();
 const origins = [
-    process.env.FRONTEND_URL
+    process.env.FRONTEND_URL,
+    'https://moovid-zeta.vercel.app/'
 ]
 app.use(cors(origins));
 const server = http.createServer(app);
@@ -25,7 +26,7 @@ io.on('connection', (socket) => {
     console.log('A user connected: ', socket.id);
     socket.on('disconnect', () => {
         console.log('User disconnected');
-    })
+    });
 
     //Join Room
     socket.on('join-room', (roomId, userId) => {
