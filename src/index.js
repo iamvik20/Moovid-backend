@@ -8,7 +8,7 @@ require('dotenv').config();
 const app = express();
 const origins = [
     process.env.FRONTEND_URL,
-    'https://moovid-zeta.vercel.app/'
+    'https://moovid-zeta.vercel.app'
 ]
 app.use(cors(origins));
 const server = http.createServer(app);
